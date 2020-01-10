@@ -5,11 +5,30 @@
 	<nav th:replace="fragments/app::navbar"></nav>
 	<br>
 	<div class="container">
-		<h1 class="font-weight-light">Categorias</h1>
-		<!-- content -->
-		
+	<h1 class="font-weight-light">Categorias</h1>
+	<hr>
+		<div class="container shadow">
+			<a th:href="@{/categoria/crear}"><i class="fas fa-plus-circle"></i>	Ingresar Categoria</a>
+			<table class="table">
+			<thead>
+			<tr>
+			<th>#</th>
+			<th>Nombre</th>
+			<th>Accion</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td></td>
+			<td></td>
+			<td>
+			<a href="#" class="btn btn-info"><i class="fas fa-edit"></i>	Editar</a>
+			</td>
+			</tr>
+			</tbody>
+			</table>
+		</div>
 	</div>
-	<div th:replace="fragments/app::scripts">
-	</div>
+	<div th:replace="fragments/app::scripts"></div>
 </body>
 </html>
