@@ -53,5 +53,8 @@ public class Artist {
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }

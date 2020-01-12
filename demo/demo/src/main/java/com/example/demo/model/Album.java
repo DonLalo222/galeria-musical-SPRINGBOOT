@@ -56,5 +56,8 @@ public class Album {
 	public void setUrlCover(String urlCover) {
 		this.urlCover = urlCover;
 	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/app::head"></head>
+<body>
+	<nav th:replace="fragments/app::navbar"></nav>
+	<br>
+	<div class="container">
+		<h1 class="font-weight-light">Editar Categoria</h1>
+		<hr>
+		<div class="container shadow">
+			<div th:text="${success}? ${success}"
+				th:classappend="${class}? ${class}"></div>
+			<form th:action="@{/categoria/actualizar}" th:method="post" th:object="${category}"
+				style="width: 350px;">
+				<div class="form-group">
+					<label>Id</label> <input type="number" th:field="*{id}"
+						class="form-control" readonly />
+				</div>
+				<div class="form-group">
+					<label>Nombre</label> <input type="text" th:field="*{name}"
+						class="form-control" />
+				</div>
+				<div class="form-group">
+					<label>Descripcion</label>
+					<textarea th:field="*{description}" class="form-control"></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">
+					<i class="fas fa-save"></i> Actualizar
+				</button>
+				<hr>
+				<a th:href="@{/categoria/index}"><i
+					class="fas fa-long-arrow-alt-left"></i> Volver</a>
+			</form>
+			<br>
+		</div>
+	</div>
+	<div th:replace="fragments/app::scripts"></div>
+</body>
+</html>
