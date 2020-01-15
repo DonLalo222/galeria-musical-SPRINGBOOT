@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Artist {
@@ -17,6 +20,8 @@ public class Artist {
 	private String name;
 	private String description;
 	private String urlPhoto;
+	@ManyToOne
+	private Category category;
 	@ManyToMany
 	private Set<Album> album;
 	// getters and setters
@@ -28,12 +33,6 @@ public class Artist {
 	}
 	public void setAlbum(Set<Album> album) {
 		this.album = album;
-	}
-	public String getUrlCover() {
-		return urlPhoto;
-	}
-	public void setUrlCover(String urlCover) {
-		this.urlPhoto = urlCover;
 	}
 	public String getName() {
 		return name;
@@ -55,6 +54,12 @@ public class Artist {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 }

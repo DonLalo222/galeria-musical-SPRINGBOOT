@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/app::head"></head>
+<body>
+	<nav th:replace="fragments/app::navbar"></nav>
+	<br>
+	<div class="container">
+	<h1 class="font-weight-light">Nuevo Artista</h1>
+	<hr>
+		<div class="container shadow">
+		<div th:text="${success}? ${success}" th:classappend="${class}? ${class}"></div>
+			<form th:action="@{/artista/guardar}" method="post" enctype="multipart/form-data" style="width:350px;">
+			<div class="form-group">
+			<label>Nombre</label>
+			<input type="text" name="name" class="form-control" />
+			</div>
+			<div class="form-group">
+			<label>Descripcion</label>
+			<textarea name="description" class="form-control"></textarea>
+			</div>
+			<div class="form-group">
+			<label>Categoria</label>
+			<select class="form-control" id="id" name="id">
+			<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}" />
+			</select>
+			</div>
+			<div class="form-group">
+			<label>Foto</label>
+			<input type="file" name="file" class="form-control" />
+			</div>
+			<button type="submit" class="btn btn-primary"><i class="fas fa-save"></i>	Guardar</button>
+			<button type="reset" class="btn btn-secondary"><i class="fas fa-trash-restore"></i>	Limpiar</button>
+			<hr>
+			<a th:href="@{/artista/index}" ><i class="fas fa-long-arrow-alt-left"></i>	Volver</a>
+			</form>
+			<br>
+		</div>
+	</div>
+	<div th:replace="fragments/app::scripts"></div>
+</body>
+</html>

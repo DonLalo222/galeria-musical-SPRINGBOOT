@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/app::head"></head>
+<body>
+	<nav th:replace="fragments/app::navbar"></nav>
+	<br>
+	<div class="container">
+		<h1 class="font-weight-light">Artistas</h1>
+		<hr>
+		<div class="container shadow">
+		<div th:text="${success}? ${success}"
+				th:classappend="${class}? ${class}"></div>
+			<a th:href="@{/artista/crear}"><i class="fas fa-plus-circle"></i>
+				Ingresar Artista</a>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Accion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="artist : ${items}">
+						<td th:text="${artist.id}"></td>
+						<td th:text="${artist.name}"></td>
+						<td>
+							<form action="#" method="post">
+							<input type="hidden" th:value="${artist.id}" name="id" />
+								<div class="btn-group" role="group" aria-label="Basic example">
+								<a th:href="#"
+										class="btn btn-secondary"><i class="fas fa-info-circle"></i>	Detalles</a>
+									<a th:href="#"
+										class="btn btn-info"><i class="fas fa-edit"></i> Editar</a>
+									<button type="submit" class="btn btn-danger">
+										<i class="fas fa-eraser"></i> Eliminar
+									</button>
+								</div>
+							</form>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+	<div th:replace="fragments/app::scripts"></div>
+</body>
+</html>
