@@ -16,7 +16,7 @@ public class Artist {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String name;
 	private String description;
 	private String urlPhoto;
@@ -25,7 +25,7 @@ public class Artist {
 	@ManyToMany
 	private Set<Album> album;
 	// getters and setters
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 	public Set<Album> getAlbum() {
@@ -52,7 +52,7 @@ public class Artist {
 	public void setUrlPhoto(String urlPhoto) {
 		this.urlPhoto = urlPhoto;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Category getCategory() {

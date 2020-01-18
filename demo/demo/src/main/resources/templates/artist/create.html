@@ -9,19 +9,19 @@
 	<hr>
 		<div class="container shadow">
 		<div th:text="${success}? ${success}" th:classappend="${class}? ${class}"></div>
-			<form th:action="@{/artista/guardar}" method="post" enctype="multipart/form-data" style="width:350px;">
+			<form th:action="@{/artista/guardar}" method="post" th:object="${artist}" enctype="multipart/form-data" style="width:350px;">
 			<div class="form-group">
 			<label>Nombre</label>
-			<input type="text" name="name" class="form-control" />
+			<input type="text" th:field="*{name}" class="form-control" />
 			</div>
 			<div class="form-group">
 			<label>Descripcion</label>
-			<textarea name="description" class="form-control"></textarea>
+			<textarea th:field="*{description}" class="form-control" maxlength="255"></textarea>
 			</div>
 			<div class="form-group">
 			<label>Categoria</label>
-			<select class="form-control" id="id" name="id">
-			<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}" />
+			<select class="form-control" th:field="*{category}" >
+			<option th:each="c : ${categories}" th:value="${c.id}" th:text="${c.name}" />
 			</select>
 			</div>
 			<div class="form-group">

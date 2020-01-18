@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/app::head"></head>
+<body>
+	<nav th:replace="fragments/app::navbar"></nav>
+	<br>
+	<div class="container">
+		<h1 class="font-weight-light">Detalles Del Artista</h1>
+		<hr>
+		<div class="container shadow">
+			<div th:text="${success}? ${success}"
+				th:classappend="${class}? ${class}"></div>
+			<div class="card mb-3">
+				<div class="row no-gutters">
+					<div class="col-md-6">
+						<img th:src="@{${item.urlPhoto}}" class="card-img" alt="...">
+					</div>
+					<div class="col-md-6">
+						<div class="card-body">
+							<h5 class="card-title" th:text="${item.name}"></h5>
+							<p class="card-text" th:text="${item.description}"></p>
+							<p class="card-text">
+								<small class="text-muted" th:text="${item.category.name}"></small>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<h2 class="font-weight-light">Albumes</h2>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Fecha de Publicacion</th>
+						<th>Opciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div th:replace="fragments/app::scripts"></div>
+</body>
+</html>

@@ -28,9 +28,9 @@
 							<form action="#" method="post">
 							<input type="hidden" th:value="${artist.id}" name="id" />
 								<div class="btn-group" role="group" aria-label="Basic example">
-								<a th:href="#"
+								<a th:href="@{/artista/detalles/{id}(id = ${artist.id})}"
 										class="btn btn-secondary"><i class="fas fa-info-circle"></i>	Detalles</a>
-									<a th:href="#"
+									<a href="#"
 										class="btn btn-info"><i class="fas fa-edit"></i> Editar</a>
 									<button type="submit" class="btn btn-danger">
 										<i class="fas fa-eraser"></i> Eliminar
