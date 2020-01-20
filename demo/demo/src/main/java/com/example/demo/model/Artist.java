@@ -1,15 +1,10 @@
 package com.example.demo.model;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Artist {
@@ -22,17 +17,9 @@ public class Artist {
 	private String urlPhoto;
 	@ManyToOne
 	private Category category;
-	@ManyToMany
-	private Set<Album> album;
 	// getters and setters
 	public Long getId() {
 		return id;
-	}
-	public Set<Album> getAlbum() {
-		return album;
-	}
-	public void setAlbum(Set<Album> album) {
-		this.album = album;
 	}
 	public String getName() {
 		return name;

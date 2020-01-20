@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.IFileDao;
+import com.example.demo.model.Album;
 import com.example.demo.model.Artist;
 import com.example.demo.model.Category;
 import com.example.demo.service.ArtistService;
@@ -82,7 +83,7 @@ public class ArtistController {
 	}
 	
 	@GetMapping("/artista/detalles/{id}")
-	public String detalles(@ModelAttribute Artist artist,
+	public String detalles(@ModelAttribute Album album,
 			Model model,
 			@PathVariable Long id) {
 		try {
@@ -92,6 +93,7 @@ public class ArtistController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		model.addAttribute("album", album);
 		model.addAttribute("title", "Artista - Detalles");
 		return "/artist/details";
 	}
